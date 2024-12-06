@@ -1,5 +1,5 @@
-return {
-    labels = { "", "", "Roll", "Pitch", "Yaw", "Coll", "", "Rate", "", "Acro+", "", "Expo" },
+﻿return {
+    labels = { "", "", "橫滾", "俯仰", "航向", "集體", "", "速率", "", "Acro+", "", "Expo" },
     fields = {
         { min = 1, max = 200, scale = 0.1 },
         { min = 1, max = 200, scale = 0.1 },

@@ -1,4 +1,4 @@
-rf2 = {
+﻿rf2 = {
     baseDir = "/SCRIPTS/RF2/",
     runningInSimulator = string.sub(select(2,getVersion()), -4) == "simu",
 

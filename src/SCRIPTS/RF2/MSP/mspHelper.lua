@@ -1,4 +1,4 @@
-local mspHelper = {
+﻿local mspHelper = {
     readU8 = function(buf)
         local offset = buf.offset or 1
         local value = buf[offset]

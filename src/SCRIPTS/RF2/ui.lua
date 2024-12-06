@@ -1,4 +1,4 @@
-local LUA_VERSION = "2.1.0-RC1"
+﻿local LUA_VERSION = "2.1.0-RC1 RotorFlight-TW 20241206"
 
 local uiStatus =
 {
@@ -61,7 +61,7 @@ rf2.displayMessage = function(title, text)
 end
 
 local function rebootFc()
-    --rf2.print("Attempting to reboot the FC...")
+    --rf2.print("正在嘗試重新啟動飛控...")
     pageState = pageStatus.rebooting
     rf2.mspQueue:add({
         command = 68, -- MSP_REBOOT
@@ -83,7 +83,7 @@ local mspEepromWrite =
         end
     end,
     errorHandler = function(self)
-        rf2.displayMessage("Save error", "Make sure your heli\nis disarmed.")
+        rf2.displayMessage("儲存錯誤", "確定您的直升機\n是否已上鎖")
     end,
     simulatorResponse = {}
 }
@@ -184,12 +184,12 @@ local function createPopupMenu()
     popupMenu = {}
     if uiState == uiStatus.pages then
         if not Page.readOnly then
-            popupMenu[#popupMenu + 1] = { t = "Save Page", f = rf2.saveSettings }
+            popupMenu[#popupMenu + 1] = { t = "儲存頁面", f = rf2.saveSettings }
         end
-        popupMenu[#popupMenu + 1] = { t = "Reload", f = invalidatePages }
+        popupMenu[#popupMenu + 1] = { t = "重新載入", f = invalidatePages }
     end
-    popupMenu[#popupMenu + 1] = { t = "Reboot", f = rebootFc }
-    popupMenu[#popupMenu + 1] = { t = "Acc Cal", f = function() confirm("CONFIRM/acc_cal.lua") end }
+    popupMenu[#popupMenu + 1] = { t = "重啟", f = rebootFc }
+    popupMenu[#popupMenu + 1] = { t = "加速校準", f = function() confirm("CONFIRM/acc_cal.lua") end }
 end
 
 rf2.dataBindFields = function()
@@ -544,11 +544,11 @@ local function run_ui(event)
         if pageState == pageStatus.saving or pageState == pageStatus.eepromWrite or pageState == pageStatus.rebooting or pageState == pageStatus.waiting then
             local saveMsg = ""
             if pageState == pageStatus.saving then
-                saveMsg = "Saving..."
+                saveMsg = "儲存中..."
             elseif pageState == pageStatus.eepromWrite then
-                saveMsg = "Updating..."
+                saveMsg = "更新中..."
             elseif pageState == pageStatus.rebooting then
-                saveMsg = "Rebooting..."
+                saveMsg = "重啟中..."
             elseif pageState == pageStatus.waiting then
                 saveMsg = waitMessage
             end

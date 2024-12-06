@@ -1,4 +1,4 @@
-local template = assert(rf2.loadScript(rf2.radio.template))()
+﻿local template = assert(rf2.loadScript(rf2.radio.template))()
 local mspStatus = assert(rf2.loadScript("MSP/mspStatus.lua"))()
 local margin = template.margin
 local indent = template.indent
@@ -13,11 +13,11 @@ local labels = {}
 local fields = {}
 local fcStatus = {}
 
-fields[#fields + 1] = { t = "Profile type",                x = x, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 1, vals = { 1 }, table = { [0] = "PID", "Rate" } }
-fields[#fields + 1] = { t = "Source profile",              x = x, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 5, vals = { 3 }, table = { [0] = "1", "2", "3", "4", "5", "6" } }
-fields[#fields + 1] = { t = "Dest. profile",               x = x, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 5, vals = { 2 }, table = { [0] = "1", "2", "3", "4", "5", "6" } }
-labels[#labels + 1] = { t = "Use Save to copy the source", x = x, y = inc.y(lineSpacing) }
-labels[#labels + 1] = { t = "profile to the destination.", x = x, y = inc.y(lineSpacing) }
+fields[#fields + 1] = { t = "參數類型",                    x = x, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 1, vals = { 1 }, table = { [0] = "PID", "Rate" } }
+fields[#fields + 1] = { t = "來源參數",                    x = x, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 5, vals = { 3 }, table = { [0] = "1", "2", "3", "4", "5", "6" } }
+fields[#fields + 1] = { t = "目標參數",                    x = x, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 5, vals = { 2 }, table = { [0] = "1", "2", "3", "4", "5", "6" } }
+labels[#labels + 1] = { t = "使用[儲存]來複製來源參數",    x = x, y = inc.y(lineSpacing) }
+labels[#labels + 1] = { t = "設定到目的地",                x = x, y = inc.y(lineSpacing) }
 
 return {
     read = function(self)
@@ -26,7 +26,7 @@ return {
     write       = 183, -- MSP_COPY_PROFILE
     reboot      = false,
     eepromWrite = true,
-    title       = "Copy",
+    title       = "複製參數",
     minBytes    = 3,
     labels      = labels,
     fields      = fields,

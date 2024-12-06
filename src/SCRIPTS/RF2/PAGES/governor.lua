@@ -1,4 +1,4 @@
-local template = assert(rf2.loadScript(rf2.radio.template))()
+﻿local template = assert(rf2.loadScript(rf2.radio.template))()
 local mspGovernorConfig = assert(rf2.loadScript("MSP/mspGovernorConfig.lua"))()
 local margin = template.margin
 local indent = template.indent
@@ -16,21 +16,21 @@ local governorConfig = {}
 x = margin
 y = yMinLim - tableSpacing.header
 
-fields[1] = { t = "Mode",                 x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govMode" }
-fields[2] = { t = "Handover throttle%",   x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govHandoverThrottle" }
-fields[3] = { t = "Startup time",         x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govStartupTime" }
-fields[4] = { t = "Spoolup time",         x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govSpoolupTime" }
-fields[5] = { t = "Tracking time",        x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govTrackingTime" }
-fields[6] = { t = "Recovery time",        x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govRecoveryTime" }
-fields[7] = { t = "AR bailout time",      x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govAutoBailoutTime" }
-fields[8] = { t = "AR timeout",           x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govAutoTimeout" }
-fields[9] = { t = "AR min entry time",    x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govAutoMinEntryTime" }
-fields[10] = { t = "Zero throttle TO",    x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govZeroThrottleTimeout" }
-fields[11] = { t = "HS signal timeout",   x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govLostHeadspeedTimeout" }
-fields[12] = { t = "HS filter cutoff",    x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govHeadspeedFilterHz" }
-fields[13] = { t = "Volt. filter cutoff", x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govVoltageFilterHz" }
-fields[14] = { t = "TTA bandwidth",       x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govTTAFilterHz" }
-fields[15] = { t = "Precomp bandwidth",   x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govFFFilterHz" }
+fields[1] = { t = "模式",                 x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govMode" }
+fields[2] = { t = "接管油門[%]",          x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govHandoverThrottle" }
+fields[3] = { t = "一階緩啟動時間",       x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govStartupTime" }
+fields[4] = { t = "二階緩啟動時間",       x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govSpoolupTime" }
+fields[5] = { t = "追蹤時間",             x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govTrackingTime" }
+fields[6] = { t = "重啟時間",             x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govRecoveryTime" }
+fields[7] = { t = "熄火重啟保護時間",     x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govAutoBailoutTime" }
+fields[8] = { t = "熄火重啟超時",         x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govAutoTimeout" }
+fields[9] = { t = "熄火降落最小進入時間", x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govAutoMinEntryTime" }
+fields[10] = { t = "零油門超時",          x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govZeroThrottleTimeout" }
+fields[11] = { t = "主旋翼轉速訊號超時",  x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govLostHeadspeedTimeout" }
+fields[12] = { t = "主旋翼轉速濾波器截止",x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govHeadspeedFilterHz" }
+fields[13] = { t = "電池電壓濾波器截止",  x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govVoltageFilterHz" }
+fields[14] = { t = "TTA控制頻寬",         x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govTTAFilterHz" }
+fields[15] = { t = "預補償頻寬",          x = x, y = inc.y(lineSpacing), sp = x + sp, id = "govFFFilterHz" }
 
 local function setValues()
     fields[1].data = governorConfig.gov_mode
@@ -65,7 +65,7 @@ return {
         mspGovernorConfig.setGovernorConfig(governorConfig)
         rf2.settingsSaved()
     end,
-    title       = "Governor",
+    title       = "定速器",
     reboot      = true,
     eepromWrite = true,
     labels      = labels,

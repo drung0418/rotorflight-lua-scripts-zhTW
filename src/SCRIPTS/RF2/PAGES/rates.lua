@@ -1,4 +1,4 @@
-local template = assert(rf2.loadScript(rf2.radio.template))()
+﻿local template = assert(rf2.loadScript(rf2.radio.template))()
 local mspSetProfile = assert(rf2.loadScript("MSP/mspSetProfile.lua"))()
 local mspStatus = assert(rf2.loadScript("MSP/mspStatus.lua"))()
 local margin = template.margin
@@ -41,10 +41,10 @@ local tableStartY = yMinLim - lineSpacing
 y = tableStartY
 labels[#labels + 1] = { t = "",      x = x, y = inc.y(tableSpacing.header) }
 labels[#labels + 1] = { t = "",      x = x, y = inc.y(tableSpacing.header) }
-labels[#labels + 1] = { t = "Roll",  x = x, y = inc.y(tableSpacing.row) }
-labels[#labels + 1] = { t = "Pitch", x = x, y = inc.y(tableSpacing.row) }
-labels[#labels + 1] = { t = "Yaw",   x = x, y = inc.y(tableSpacing.row) }
-labels[#labels + 1] = { t = "Coll",  x = x, y = inc.y(tableSpacing.row) }
+labels[#labels + 1] = { t = "橫滾",  x = x, y = inc.y(tableSpacing.row) }
+labels[#labels + 1] = { t = "俯仰",  x = x, y = inc.y(tableSpacing.row) }
+labels[#labels + 1] = { t = "航向",  x = x, y = inc.y(tableSpacing.row) }
+labels[#labels + 1] = { t = "集體",  x = x, y = inc.y(tableSpacing.row) }
 
 x = x + tableSpacing.col
 y = tableStartY
@@ -75,7 +75,7 @@ fields[#fields + 1] = {              x = x, y = inc.y(tableSpacing.row), min = 0
 
 x = margin
 inc.y(lineSpacing * 0.5)
-fields[13] = { t = "Rates type",                   x = x,          y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 5,      vals = { 1 }, table = { [0] = "NONE", "BETAFL", "RACEFL", "KISS", "ACTUAL", "QUICK"}, postEdit = function(self, page) page.updateRatesType(page, true) end }
+fields[13] = { t = "速率類型",                     x = x,          y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 5,      vals = { 1 }, table = { [0] = "NONE", "BETAFL", "RACEFL", "KISS", "ACTUAL", "QUICK"}, postEdit = function(self, page) page.updateRatesType(page, true) end }
 
 inc.y(lineSpacing * 0.5)
 fields[14] = { t = "Current rate profile",         x = x,          y = inc.y(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = startEditing, postEdit = endRateEditing }
@@ -83,23 +83,23 @@ fields[15] = { t = "Destination profile",          x = x,          y = inc.y(lin
 fields[#fields + 1] = { t = "[Copy Current to Dest]", x = x + indent, y = inc.y(lineSpacing), preEdit = copyProfile }
 
 inc.y(lineSpacing * 0.5)
-labels[#labels + 1] = { t = "Roll Dynamics",       x = x,          y = inc.y(lineSpacing) }
-fields[#fields + 1] = { t = "Response time",       x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 250,   vals = { 5 } }
-fields[#fields + 1] = { t = "Max acceleration",    x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 50000, vals = { 6,7 },   scale = 0.1 }
-labels[#labels + 1] = { t = "Pitch Dynamics",      x = x,          y = inc.y(lineSpacing) }
-fields[#fields + 1] = { t = "Response time",       x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 250,   vals = { 11 } }
-fields[#fields + 1] = { t = "Max acceleration",    x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 50000, vals = { 12,13 }, scale = 0.1 }
-labels[#labels + 1] = { t = "Yaw Dynamics",        x = x,          y = inc.y(lineSpacing) }
-fields[#fields + 1] = { t = "Response time",       x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 250,   vals = { 17 } }
-fields[#fields + 1] = { t = "Max acceleration",    x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 50000, vals = { 18,19 }, scale = 0.1 }
-labels[#labels + 1] = { t = "Collective Dynamics", x = x,          y = inc.y(lineSpacing) }
-fields[#fields + 1] = { t = "Response time",       x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 250,   vals = { 23 } }
-fields[#fields + 1] = { t = "Max acceleration",    x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 50000, vals = { 24,25 }, scale = 0.1 }
+labels[#labels + 1] = { t = "橫滾動態",            x = x,          y = inc.y(lineSpacing) }
+fields[#fields + 1] = { t = "回應時間[ms]",        x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 250,   vals = { 5 } }
+fields[#fields + 1] = { t = "最大加速度",          x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 50000, vals = { 6,7 },   scale = 0.1 }
+labels[#labels + 1] = { t = "俯仰動態",            x = x,          y = inc.y(lineSpacing) }
+fields[#fields + 1] = { t = "回應時間[ms]",        x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 250,   vals = { 11 } }
+fields[#fields + 1] = { t = "最大加速度",          x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 50000, vals = { 12,13 }, scale = 0.1 }
+labels[#labels + 1] = { t = "航向動態",            x = x,          y = inc.y(lineSpacing) }
+fields[#fields + 1] = { t = "回應時間[ms]",        x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 250,   vals = { 17 } }
+fields[#fields + 1] = { t = "最大加速度",          x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 50000, vals = { 18,19 }, scale = 0.1 }
+labels[#labels + 1] = { t = "集體螺距動態",        x = x,          y = inc.y(lineSpacing) }
+fields[#fields + 1] = { t = "回應時間[ms]",        x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 250,   vals = { 23 } }
+fields[#fields + 1] = { t = "最大加速度",          x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 50000, vals = { 24,25 }, scale = 0.1 }
 
 return {
     read        = 111, -- MSP_RC_TUNING
     write       = 204, -- MSP_SET_RC_TUNING
-    title       = "Rates",
+    title       = "速率",
     reboot      = false,
     eepromWrite = true,
     minBytes    = 25,

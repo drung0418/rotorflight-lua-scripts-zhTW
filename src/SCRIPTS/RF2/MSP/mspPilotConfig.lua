@@ -1,4 +1,4 @@
-local function getPilotConfig(callback, callbackParam)
+﻿local function getPilotConfig(callback, callbackParam)
     local message = {
         command = 12, -- MSP_PILOT_CONFIG
         processReply = function(self, buf)

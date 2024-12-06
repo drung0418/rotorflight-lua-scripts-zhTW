@@ -1,4 +1,4 @@
-local function getGovernorConfig(callback, callbackParam)
+﻿local function getGovernorConfig(callback, callbackParam)
     local message = {
         command = 142, -- MSP_GOVERNOR_CONFIG
         processReply = function(self, buf)

@@ -1,4 +1,4 @@
-local function setRtc(callback, callbackParam)
+﻿local function setRtc(callback, callbackParam)
     local message = {
         command = 246, -- MSP_SET_RTC
         payload = {},

@@ -1,4 +1,4 @@
-local timeIsSet = rf2.runningInSimulator
+﻿local timeIsSet = rf2.runningInSimulator
 local nameIsSet = false
 local mspApiVersion, mspSetRtc, mspName, mspPilotConfig, adjTellerTask
 local adjTellerEnabled = true

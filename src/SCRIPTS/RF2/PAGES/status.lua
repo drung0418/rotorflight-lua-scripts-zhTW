@@ -1,4 +1,4 @@
-local template = assert(rf2.loadScript(rf2.radio.template))()
+﻿local template = assert(rf2.loadScript(rf2.radio.template))()
 local mspStatus = assert(rf2.loadScript("MSP/mspStatus.lua"))()
 local mspDataflash = assert(rf2.loadScript("MSP/mspDataflash.lua"))()
 local mspSetProfile = assert(rf2.loadScript("MSP/mspSetProfile.lua"))()
@@ -32,21 +32,21 @@ local endRateEditing = function(field, page)
     mspSetProfile.setRateProfile(field.data.value)
 end
 
-fields[#fields + 1] = { t = "Current PID profile",   x = x,              y = inc.y(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = startEditing, postEdit = endPidEditing }
-fields[#fields + 1] = { t = "Current rate profile",  x = x,              y = inc.y(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = startEditing, postEdit = endRateEditing }
+fields[#fields + 1] = { t = "目前 PID 設定檔",       x = x,              y = inc.y(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = startEditing, postEdit = endPidEditing }
+fields[#fields + 1] = { t = "目前 rate 設定檔",      x = x,              y = inc.y(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = startEditing, postEdit = endRateEditing }
 
 inc.y(lineSpacing * 0.25)
-labels[#labels + 1] = { t = "Arming Disabled Flags", x = x,              y = inc.y(lineSpacing) }
+labels[#labels + 1] = { t = "解鎖禁止旗標",          x = x,              y = inc.y(lineSpacing) }
 labels[#labels + 1] = { t = "---",                   x = x + indent,     y = inc.y(lineSpacing), bold = false }
 
 inc.y(lineSpacing * 0.25)
-labels[#labels + 1] = { t = "Dataflash Free Space",  x = x,              y = inc.y(lineSpacing) }
+labels[#labels + 1] = { t = "可用儲存空間",          x = x,              y = inc.y(lineSpacing) }
 labels[#labels + 1] = { t = "---",                   x = x + indent,     y = inc.y(lineSpacing), bold = false }
-fields[#fields + 1] = { t = "[Erase]",               x = x + indent * 7, y = y }
+fields[#fields + 1] = { t = "[抹除]",                x = x + indent * 7, y = y }
 
 inc.y(lineSpacing * 0.25)
-fields[#fields + 1] = { t = "Real-time load",        x = x,              y = inc.y(lineSpacing), sp = x + sp, data = { value = 0, scale = 10 }, readOnly = true }
-fields[#fields + 1] = { t = "CPU load",              x = x,              y = inc.y(lineSpacing), sp = x + sp, data = { value = 0, scale = 10 }, readOnly = true }
+fields[#fields + 1] = { t = "即時負載",              x = x,              y = inc.y(lineSpacing), sp = x + sp, data = { value = 0, scale = 10 }, readOnly = true }
+fields[#fields + 1] = { t = "CPU 負載",              x = x,              y = inc.y(lineSpacing), sp = x + sp, data = { value = 0, scale = 10 }, readOnly = true }
 
 local function armingDisableFlagsToString(flags)
     local t = ""

@@ -1,4 +1,4 @@
-local function getServoConfigurations(callback, callbackParam)
+﻿local function getServoConfigurations(callback, callbackParam)
     local message = {
         command = 120, -- MSP_SERVO_CONFIGURATIONS
         processReply = function(self, buf)

@@ -1,4 +1,4 @@
-local supportedProtocols =
+﻿local supportedProtocols =
 {
     smartPort =
     {

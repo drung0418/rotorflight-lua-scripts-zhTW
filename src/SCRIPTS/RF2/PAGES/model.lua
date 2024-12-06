@@ -1,4 +1,4 @@
-local template = assert(rf2.loadScript(rf2.radio.template))()
+﻿local template = assert(rf2.loadScript(rf2.radio.template))()
 local mspPilotConfig = assert(rf2.loadScript("MSP/mspPilotConfig.lua"))()
 local mspName = assert(rf2.loadScript("MSP/mspName.lua"))()
 local settingsHelper = assert(rf2.loadScript("PAGES/helpers/settingsHelper.lua"))()
@@ -76,7 +76,7 @@ return {
         pilotConfigReset()
         rf2.settingsSaved()
     end,
-    title       = "Model",
+    title       = "模型",
     reboot      = false,
     eepromWrite = true,
     labels      = labels,

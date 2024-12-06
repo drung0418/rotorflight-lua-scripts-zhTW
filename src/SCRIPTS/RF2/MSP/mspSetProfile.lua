@@ -1,4 +1,4 @@
-local function setPidProfile(profileIndex, callback, callbackParam)
+﻿local function setPidProfile(profileIndex, callback, callbackParam)
     local message = {
         command = 210, -- MSP_SELECT_SETTING
         payload = { profileIndex },

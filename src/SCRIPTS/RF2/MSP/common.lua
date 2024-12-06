@@ -1,4 +1,4 @@
--- Protocol version
+﻿-- Protocol version
 local MSP_VERSION = bit32.lshift(1,5)
 local MSP_STARTFLAG = bit32.lshift(1,4)
 

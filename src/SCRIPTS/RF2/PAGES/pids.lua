@@ -1,4 +1,4 @@
-local template = assert(rf2.loadScript(rf2.radio.template))()
+﻿local template = assert(rf2.loadScript(rf2.radio.template))()
 local mspSetProfile = assert(rf2.loadScript("MSP/mspSetProfile.lua"))()
 local mspStatus = assert(rf2.loadScript("MSP/mspStatus.lua"))()
 local margin = template.margin
@@ -42,9 +42,9 @@ x = margin
 local tableStartY = yMinLim - lineSpacing
 y = tableStartY
 labels[#labels + 1] = { t = "",      x = x, y = inc.y(tableSpacing.header) }
-labels[#labels + 1] = { t = "Roll",  x = x, y = inc.y(tableSpacing.row) }
-labels[#labels + 1] = { t = "Pitch", x = x, y = inc.y(tableSpacing.row) }
-labels[#labels + 1] = { t = "Yaw",   x = x, y = inc.y(tableSpacing.row) }
+labels[#labels + 1] = { t = "橫滾",  x = x, y = inc.y(tableSpacing.row) }
+labels[#labels + 1] = { t = "俯仰",  x = x, y = inc.y(tableSpacing.row) }
+labels[#labels + 1] = { t = "航向",  x = x, y = inc.y(tableSpacing.row) }
 
 x = x + tableSpacing.col
 y = tableStartY
@@ -83,9 +83,9 @@ fields[#fields + 1] = {              x = x, y = inc.y(tableSpacing.row), min = 0
 
 x = margin
 inc.y(lineSpacing * 0.5)
-fields[16] = { t = "Current PID profile",             x = x,          y = inc.y(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = startEditing, postEdit = endPidEditing }
-fields[17] = { t = "Destination profile",             x = x,          y = inc.y(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } } }
-fields[#fields + 1] = { t = "[Copy Current to Dest]", x = x + indent, y = inc.y(lineSpacing), preEdit = copyProfile }
+fields[16] = { t = "目前 PID 設定檔",                 x = x,          y = inc.y(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = startEditing, postEdit = endPidEditing }
+fields[17] = { t = "預定複製到設定檔",                x = x,          y = inc.y(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } } }
+fields[#fields + 1] = { t = "[開始複製]",             x = x + indent, y = inc.y(lineSpacing), preEdit = copyProfile }
 
 inc.y(lineSpacing * 0.5)
 labels[#labels + 1] = { t = "HSI Offset Gain",        x = x,          y = inc.y(lineSpacing) }
@@ -95,7 +95,7 @@ fields[#fields + 1] = { t = "Pitch",                  x = x + indent, y = inc.y(
 return {
     read        = 112, -- MSP_PID_TUNING
     write       = 202, -- MSP_SET_PID_TUNING
-    title       = "PIDs",
+    title       = "飛行參數 - PIDs",
     reboot      = false,
     eepromWrite = true,
     minBytes    = 34,

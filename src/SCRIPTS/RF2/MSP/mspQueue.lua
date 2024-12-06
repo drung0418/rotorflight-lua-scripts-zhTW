@@ -1,4 +1,4 @@
--- MspQueueController class
+﻿-- MspQueueController class
 local MspQueueController = {}
 MspQueueController.__index = MspQueueController
 

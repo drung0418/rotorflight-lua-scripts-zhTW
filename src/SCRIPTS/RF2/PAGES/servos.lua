@@ -1,4 +1,4 @@
-local template = assert(rf2.loadScript(rf2.radio.template))()
+﻿local template = assert(rf2.loadScript(rf2.radio.template))()
 local mspServos = assert(rf2.loadScript("MSP/mspServos.lua"))()
 local margin = template.margin
 local indent = template.indent
@@ -66,14 +66,14 @@ local function onClickOverride(field, page)
     end
 end
 
-fields[1] = { t = "Servo",      x = x,          y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 7, table = { [0] = "ELEVATOR", "CYCL L", "CYCL R", "TAIL", "5", "6", "7", "8" }, postEdit = onChangeServo }
-fields[2] = { t = "Center",     x = x + indent, y = inc.y(lineSpacing), sp = x + sp, id = "servoMid", preEdit = onPreEditCenter, change = onChangeCenter, postEdit = onPostEditCenter }
-fields[3] = { t = "Min",        x = x + indent, y = inc.y(lineSpacing), sp = x + sp, id = "servoMin" }
-fields[4] = { t = "Max",        x = x + indent, y = inc.y(lineSpacing), sp = x + sp, id = "servoMax" }
-fields[5] = { t = "Scale neg",  x = x + indent, y = inc.y(lineSpacing), sp = x + sp, id = "servoScaleNeg" }
-fields[6] = { t = "Scale pos",  x = x + indent, y = inc.y(lineSpacing), sp = x + sp, id = "servoScalePos" }
-fields[7] = { t = "Rate",       x = x + indent, y = inc.y(lineSpacing), sp = x + sp, id = "servoRate" }
-fields[8] = { t = "Speed",      x = x + indent, y = inc.y(lineSpacing), sp = x + sp, id = "servoSpeed" }
+fields[1] = { t = "舵機",       x = x,          y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 7, table = { [0] = "俯仰舵機", "左舵機", "右舵機", "尾舵機", "5", "6", "7", "8" }, postEdit = onChangeServo }
+fields[2] = { t = "中心點[us]", x = x + indent, y = inc.y(lineSpacing), sp = x + sp, id = "servoMid", preEdit = onPreEditCenter, change = onChangeCenter, postEdit = onPostEditCenter }
+fields[3] = { t = "最小值[us]", x = x + indent, y = inc.y(lineSpacing), sp = x + sp, id = "servoMin" }
+fields[4] = { t = "最大值[us]", x = x + indent, y = inc.y(lineSpacing), sp = x + sp, id = "servoMax" }
+fields[5] = { t = "負縮放",     x = x + indent, y = inc.y(lineSpacing), sp = x + sp, id = "servoScaleNeg" }
+fields[6] = { t = "正縮放",     x = x + indent, y = inc.y(lineSpacing), sp = x + sp, id = "servoScalePos" }
+fields[7] = { t = "頻率[Hz]",   x = x + indent, y = inc.y(lineSpacing), sp = x + sp, id = "servoRate" }
+fields[8] = { t = "速度[ms]",   x = x + indent, y = inc.y(lineSpacing), sp = x + sp, id = "servoSpeed" }
 inc.y(lineSpacing * 0.5)
 fields[9] = { t = "[Override All Servos]", x = x + indent * 2, y = inc.y(lineSpacing), preEdit = onClickOverride }
 
@@ -102,7 +102,7 @@ return {
             updateSelectedServoConfiguration = false
         end
     end,
-    title       = "Servos",
+    title       = "舵機",
     reboot      = false,
     eepromWrite = true,
     labels      = labels,

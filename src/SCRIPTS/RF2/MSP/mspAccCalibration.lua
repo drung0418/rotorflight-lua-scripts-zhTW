@@ -1,4 +1,4 @@
-local function calibrate(callback, callbackParam)
+﻿local function calibrate(callback, callbackParam)
     local message =
     {
         command = 205, -- MSP_ACC_CALIBRATION

@@ -1,11 +1,11 @@
-local mspApiVersion = assert(rf2.loadScript("MSP/mspApiVersion.lua"))()
+﻿local mspApiVersion = assert(rf2.loadScript("MSP/mspApiVersion.lua"))()
 local returnTable = { f = nil, t = "" }
 local apiVersion
 local lastRunTS
 
 local function init()
     if getRSSI() == 0 and not rf2.runningInSimulator then
-        returnTable.t = "Waiting for connection"
+        returnTable.t = "等待連接"
         return false
     end
 

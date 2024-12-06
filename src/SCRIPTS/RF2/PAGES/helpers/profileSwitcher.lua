@@ -1,4 +1,4 @@
-local profileSwitcher = {
+﻿local profileSwitcher = {
     mspSetProfile = assert(rf2.loadScript("MSP/mspSetProfile.lua"))(),
     mspStatus = assert(rf2.loadScript("MSP/mspStatus.lua"))(),
     editing = false,

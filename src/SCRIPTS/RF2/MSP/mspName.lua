@@ -1,4 +1,4 @@
-local function getText(array, start, maxLength)
+﻿local function getText(array, start, maxLength)
     local text = ""
     for i = start, start + maxLength - 1 do
         local v = array[i]
