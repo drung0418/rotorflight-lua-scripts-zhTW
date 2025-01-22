@@ -75,7 +75,7 @@ fields[6] = { t = "正縮放",     x = x + indent, y = inc.y(lineSpacing), sp = 
 fields[7] = { t = "頻率[Hz]",   x = x + indent, y = inc.y(lineSpacing), sp = x + sp, id = "servoRate" }
 fields[8] = { t = "速度[ms]",   x = x + indent, y = inc.y(lineSpacing), sp = x + sp, id = "servoSpeed" }
 inc.y(lineSpacing * 0.5)
-fields[9] = { t = "[Override All Servos]", x = x + indent * 2, y = inc.y(lineSpacing), preEdit = onClickOverride }
+fields[9] = { t = "[覆寫所有舵機]", x = x + indent * 2, y = inc.y(lineSpacing), preEdit = onClickOverride }
 
 local function receivedServoConfigurations(page, configs)
     servoConfigs = configs

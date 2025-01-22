@@ -78,9 +78,9 @@ inc.y(lineSpacing * 0.5)
 fields[13] = { t = "速率類型",                     x = x,          y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 5,      vals = { 1 }, table = { [0] = "NONE", "BETAFL", "RACEFL", "KISS", "ACTUAL", "QUICK"}, postEdit = function(self, page) page.updateRatesType(page, true) end }
 
 inc.y(lineSpacing * 0.5)
-fields[14] = { t = "Current rate profile",         x = x,          y = inc.y(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = startEditing, postEdit = endRateEditing }
-fields[15] = { t = "Destination profile",          x = x,          y = inc.y(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } } }
-fields[#fields + 1] = { t = "[Copy Current to Dest]", x = x + indent, y = inc.y(lineSpacing), preEdit = copyProfile }
+fields[14] = { t = "目前 rate 設定檔",             x = x,          y = inc.y(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = startEditing, postEdit = endRateEditing }
+fields[15] = { t = "預定複製到設定檔",             x = x,          y = inc.y(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } } }
+fields[#fields + 1] = { t = "[開始複製]",          x = x + indent, y = inc.y(lineSpacing), preEdit = copyProfile }
 
 inc.y(lineSpacing * 0.5)
 labels[#labels + 1] = { t = "橫滾動態",            x = x,          y = inc.y(lineSpacing) }

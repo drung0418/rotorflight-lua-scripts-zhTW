@@ -15,7 +15,7 @@ local profileSwitcher = assert(rf2.loadScript("PAGES/helpers/profileSwitcher.lua
 fields[#fields + 1] = { t = "目前 PID 設定檔",         x = x,          y = inc.y(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = profileSwitcher.startPidEditing, postEdit = profileSwitcher.endPidEditing }
 
 inc.y(lineSpacing * 0.25)
-fields[#fields + 1] = { t = "I-term 釋放類型",         x = x,          y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 2, vals = { 17 }, table = { [0] = "關閉", "RP", "RPY" } }
+fields[#fields + 1] = { t = "I-term 釋放類型",         x = x,          y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 2, vals = { 17 }, table = { [0] = "OFF", "RP", "RPY" } }
 fields[#fields + 1] = { t = "橫滾截止點",              x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 1, max = 100, vals = { 18 } }
 fields[#fields + 1] = { t = "俯仰截止點",              x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 1, max = 100, vals = { 19 } }
 fields[#fields + 1] = { t = "航向截止點",              x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 1, max = 100, vals = { 20 } }
@@ -50,7 +50,7 @@ labels[#labels + 1] = { t = "半自穩模式",              x = x,          y = 
 fields[#fields + 1] = { t = "回正增益",                x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 200, vals = { 31 } }
 
 inc.y(lineSpacing * 0.25)
-fields[#fields + 1] = { t = "Piro 補償",               x = x,          y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 1, vals = { 7 }, table = { [0] = "關閉", "打開" } }
+fields[#fields + 1] = { t = "Piro 補償",               x = x,          y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 1, vals = { 7 }, table = { [0] = "OFF", "ON" } }
 labels[#labels + 1] = { t = "Ground 誤差衰減",         x = x,          y = inc.y(lineSpacing) }
 fields[#fields + 1] = { t = "時間",                    x = x + indent, y = inc.y(lineSpacing), sp = x + sp, min = 0, max = 250, vals = { 2 }, scale = 10 }
 labels[#labels + 1] = { t = "循環誤差衰減",            x = x,          y = inc.y(lineSpacing) }
