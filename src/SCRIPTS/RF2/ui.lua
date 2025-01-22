@@ -1,4 +1,4 @@
-﻿local LUA_VERSION = "2.1.0-RC1 RotorFlight-TW 20241206"
+﻿local LUA_VERSION = "2.1.0 Rotorflight-TW"
 
 local uiStatus =
 {
