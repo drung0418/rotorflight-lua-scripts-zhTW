@@ -1,4 +1,4 @@
-local template = assert(rf2.loadScript(rf2.radio.template))()
+﻿local template = assert(rf2.loadScript(rf2.radio.template))()
 local margin = template.margin
 local indent = template.indent
 local lineSpacing = template.lineSpacing
@@ -14,9 +14,9 @@ local fields = {}
 local mspAccTrim = "mspAccTrim"
 local data = rf2.useApi(mspAccTrim).getDefaults()
 
-labels[#labels + 1] = { t = "Accelerometer Trim", x = x,          y = incY(lineSpacing) }
-fields[#fields + 1] = { t = "Roll",               x = x + indent, y = incY(lineSpacing), sp = x + sp, data = data.roll_trim }
-fields[#fields + 1] = { t = "Pitch",              x = x + indent, y = incY(lineSpacing), sp = x + sp, data = data.pitch_trim }
+labels[#labels + 1] = { t = "速度計微調", x = x,          y = incY(lineSpacing) }
+fields[#fields + 1] = { t = "橫滾",               x = x + indent, y = incY(lineSpacing), sp = x + sp, data = data.roll_trim }
+fields[#fields + 1] = { t = "俯仰",              x = x + indent, y = incY(lineSpacing), sp = x + sp, data = data.pitch_trim }
 
 local function receivedData(page, data)
     rf2.lcdNeedsInvalidate = true
@@ -33,7 +33,7 @@ return {
     end,
     eepromWrite = true,
     reboot      = false,
-    title       = "Accelerometer",
+    title       = "加速度計",
     labels      = labels,
     fields      = fields
 }

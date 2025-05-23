@@ -1,4 +1,4 @@
-local function getDefaults()
+﻿local function getDefaults()
     local defaults = {}
     defaults.model_id = { min = 0, max = 99 }
     local paramTypes = { [0] = "NONE", "TIMER1", "TIMER2", "TIMER3", "GV1", "GV2", "GV3", "GV4", "GV5", "GV6", "GV7", "GV8", "GV9" }

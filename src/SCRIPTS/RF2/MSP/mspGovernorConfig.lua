@@ -1,4 +1,4 @@
-local function getDefaults()
+﻿local function getDefaults()
     local defaults = {}
     defaults.gov_mode = { min = 0, max = 4, table = { [0] = "OFF", "PASSTHROUGH", "STANDARD", "MODE1", "MODE2" } }
     defaults.gov_startup_time = { min = 0, max = 600, scale = 10, unit = rf2.units.seconds }

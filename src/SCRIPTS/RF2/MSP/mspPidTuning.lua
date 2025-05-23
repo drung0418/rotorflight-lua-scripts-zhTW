@@ -1,4 +1,4 @@
-local function getDefaults()
+﻿local function getDefaults()
     local defaults = {}
     defaults.roll_p = { min = 0, max = 1000 }
     defaults.roll_i = { min = 0, max = 1000 }

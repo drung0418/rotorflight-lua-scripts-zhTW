@@ -1,4 +1,4 @@
-local initializationDone = false
+﻿local initializationDone = false
 local crsfCustomTelemetryEnabled = false
 
 local settingsHelper = assert(rf2.loadScript(rf2.baseDir.."PAGES/helpers/settingsHelper.lua"))()

@@ -1,4 +1,4 @@
-local function getApiVersion(callback, callbackParam)
+﻿local function getApiVersion(callback, callbackParam)
     local message = {
         command = 1, -- MSP_API_VERSION
         processReply = function(self, buf)

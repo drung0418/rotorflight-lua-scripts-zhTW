@@ -1,4 +1,4 @@
-local function getDefaults()
+﻿local function getDefaults()
     local defaults = {}
     defaults.mode = { value = nil, min = 0, max = 1, table = { [0] = "Off", "On" } }
     defaults.flip_mode = { value = nil, min = 0, max = 1, table = { [0] = "No Flip", "Flip" } }

@@ -1,4 +1,4 @@
---
+﻿--
 -- Rotorflight Custom Telemetry Decoder for ELRS
 --
 

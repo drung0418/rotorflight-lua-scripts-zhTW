@@ -1,4 +1,4 @@
-local function getDefaults()
+﻿local function getDefaults()
     local defaults = {}
     defaults.pitch_trim = { min = -300, max = 300, scale = 10, unit = rf2.units.degrees }
     defaults.roll_trim = { min = -300, max = 300, scale = 10, unit = rf2.units.degrees }

@@ -1,4 +1,4 @@
-local function getFeatureConfig(callback, callbackParam)
+﻿local function getFeatureConfig(callback, callbackParam)
     local message = {
         command = 36, -- MSP_FEATURE_CONFIG
         processReply = function(self, buf)

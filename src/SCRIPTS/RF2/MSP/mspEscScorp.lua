@@ -1,4 +1,4 @@
-local flightMode = {
+﻿local flightMode = {
     [0] = "Heli Governor",
     "Heli Governor (stored)",
     "VBar Governor",

@@ -1,4 +1,4 @@
-local LUA_VERSION = "2.2.0-RC5"
+﻿local LUA_VERSION = "2.2.0-RC5"
 
 local uiStatus =
 {
@@ -73,7 +73,7 @@ rf2.setCurrentField = function()
 end
 
 local function rebootFc()
-    --rf2.print("Attempting to reboot the FC...")
+    --rf2.print("正在嘗試重新啟動飛控...")
     pageState = pageStatus.rebooting
     rf2.mspQueue:add({
         command = 68, -- MSP_REBOOT
@@ -103,13 +103,13 @@ rf2.settingsSaved = function()
                 errorHandler = function(self)
                     if rf2.apiVersion >= 12.08 then
                         if not rf2.saveWarningShown then
-                            rf2.displayMessage("Save warning", "Settings will be saved\nafter disarming.")
+                            rf2.displayMessage("儲存警告", "設定值會在\n上鎖後儲存")
                             rf2.saveWarningShown = true
                         else
                             invalidatePages()
                         end
                     else
-                        rf2.displayMessage("Save error", "Make sure your heli\nis disarmed.")
+                        rf2.displayMessage("儲存錯誤", "確定您的直升機\n是否已上鎖")
                     end
                 end,
                 simulatorResponse = {}
@@ -159,12 +159,12 @@ local function createPopupMenu()
     popupMenu = {}
     if uiState == uiStatus.pages then
         if not Page.readOnly then
-            popupMenu[#popupMenu + 1] = { t = "Save Page", f = rf2.saveSettings }
+            popupMenu[#popupMenu + 1] = { t = "儲存頁面", f = rf2.saveSettings }
         end
-        popupMenu[#popupMenu + 1] = { t = "Reload", f = invalidatePages }
+        popupMenu[#popupMenu + 1] = { t = "重新載入", f = invalidatePages }
     end
-    popupMenu[#popupMenu + 1] = { t = "Reboot", f = rebootFc }
-    popupMenu[#popupMenu + 1] = { t = "Acc Cal", f = function() confirm("CONFIRM/acc_cal.lua") end }
+    popupMenu[#popupMenu + 1] = { t = "重啟", f = rebootFc }
+    popupMenu[#popupMenu + 1] = { t = "加速度計校準", f = function() confirm("CONFIRM/acc_cal.lua") end }
 end
 
 local function incMax(val, inc, base)

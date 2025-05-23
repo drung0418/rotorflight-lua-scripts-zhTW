@@ -1,4 +1,4 @@
-local function getDataflashSummary(callback, callbackParam)
+﻿local function getDataflashSummary(callback, callbackParam)
     local message = {
         command = 70, -- MSP_DATAFLASH_SUMMARY
         processReply = function(self, buf)

@@ -1,4 +1,4 @@
-
+﻿
 local function getDefaults()
     local gyroFilterType = { [0] = "NONE", "1ST", "2ND" }
     local defaults = {}

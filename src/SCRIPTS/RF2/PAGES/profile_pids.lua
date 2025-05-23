@@ -1,4 +1,4 @@
-local template = assert(rf2.loadScript(rf2.radio.template))()
+﻿local template = assert(rf2.loadScript(rf2.radio.template))()
 local mspStatus = rf2.useApi("mspStatus")
 local margin = template.margin
 local indent = template.indent
@@ -44,9 +44,9 @@ x = margin
 local tableStartY = yMinLim - lineSpacing
 y = tableStartY
 labels[#labels + 1] = { t = "",      x = x, y = incY(tableSpacing.header) }
-labels[#labels + 1] = { t = "Roll",  x = x, y = incY(tableSpacing.row) }
-labels[#labels + 1] = { t = "Pitch", x = x, y = incY(tableSpacing.row) }
-labels[#labels + 1] = { t = "Yaw",   x = x, y = incY(tableSpacing.row) }
+labels[#labels + 1] = { t = "橫滾",  x = x, y = incY(tableSpacing.row) }
+labels[#labels + 1] = { t = "俯仰", x = x, y = incY(tableSpacing.row) }
+labels[#labels + 1] = { t = "航向",   x = x, y = incY(tableSpacing.row) }
 
 x = x + tableSpacing.col
 y = tableStartY
@@ -85,14 +85,14 @@ fields[#fields + 1] = {              x = x, y = incY(tableSpacing.row), data = p
 
 x = margin
 incY(lineSpacing * 0.5)
-fields[16] = { t = "Current PID profile",             x = x,          y = incY(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = startEditing, postEdit = endPidEditing }
-fields[17] = { t = "Destination profile",             x = x,          y = incY(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } } }
-fields[#fields + 1] = { t = "[Copy Current to Dest]", x = x + indent, y = incY(lineSpacing), preEdit = copyProfile }
+fields[16] = { t = "目前 PID 設定檔",             x = x,          y = incY(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = startEditing, postEdit = endPidEditing }
+fields[17] = { t = "預定複製到設定檔",             x = x,          y = incY(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } } }
+fields[#fields + 1] = { t = "[開始複製]", x = x + indent, y = incY(lineSpacing), preEdit = copyProfile }
 
 incY(lineSpacing * 0.5)
-labels[#labels + 1] = { t = "HSI Offset Gain",        x = x,          y = incY(lineSpacing) }
-fields[#fields + 1] = { t = "Roll",                   x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pids.roll_o }
-fields[#fields + 1] = { t = "Pitch",                  x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pids.pitch_o }
+labels[#labels + 1] = { t = "HSI 偏移增益",        x = x,          y = incY(lineSpacing) }
+fields[#fields + 1] = { t = "橫滾",                   x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pids.roll_o }
+fields[#fields + 1] = { t = "俯仰",                  x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pids.pitch_o }
 
 local function receivedPidTuning(page, data)
     rf2.lcdNeedsInvalidate = true
@@ -107,7 +107,7 @@ return {
         rf2.useApi("mspPidTuning").write(pids)
         rf2.settingsSaved()
     end,
-    title       = "PID Gains",
+    title       = "飛行參數 - PIDs",
     reboot      = false,
     eepromWrite = true,
     labels      = labels,

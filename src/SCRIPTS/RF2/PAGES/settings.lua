@@ -1,4 +1,4 @@
-local template = assert(rf2.loadScript(rf2.radio.template))()
+﻿local template = assert(rf2.loadScript(rf2.radio.template))()
 local settingsHelper = assert(rf2.loadScript("PAGES/helpers/settingsHelper.lua"))()
 local margin = template.margin
 local indent = template.indent
@@ -16,12 +16,12 @@ local hideShow = { [0] = "Hide", "Show" }
 local offOn = { [0] = "Off", "On" }
 
 y = yMinLim - tableSpacing.header
-labels[1] = { t = "Display Various Pages",   x = x, y = incY(lineSpacing) }
+labels[1] = { t = "顯示[其它]選單",   x = x, y = incY(lineSpacing) }
 fields[1] = { t = "Model on TX",             x = x + indent, y = incY(lineSpacing), sp = x + sp }
 fields[2] = { t = "Experimental (!)",        x = x + indent, y = incY(lineSpacing), sp = x + sp }
 
 incY(lineSpacing * 0.5)
-labels[2] = { t = "Display ESC Pages",       x = x, y = incY(lineSpacing) }
+labels[2] = { t = "顯示[電變] 選單",       x = x, y = incY(lineSpacing) }
 fields[3] = { t = "FlyRotor",                x = x + indent, y = incY(lineSpacing), sp = x + sp }
 fields[4] = { t = "HW Platinum V5",          x = x + indent, y = incY(lineSpacing), sp = x + sp }
 fields[5] = { t = "Scorpion Tribunus",       x = x + indent, y = incY(lineSpacing), sp = x + sp }
@@ -62,7 +62,7 @@ return {
         rf2.loadPageFiles(true)
         rf2.settingsSaved()
     end,
-    title       = "Settings",
+    title       = "設定",
     reboot      = false,
     eepromWrite = false,
     labels      = labels,

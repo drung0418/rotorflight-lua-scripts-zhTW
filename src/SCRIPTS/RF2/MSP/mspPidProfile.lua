@@ -1,4 +1,4 @@
-local function getDefaults()
+﻿local function getDefaults()
     local data = {}
     data.pid_mode = { min = 0, max = 250 }
     data.error_decay_time_ground = { min = 0, max = 250, scale = 10, unit = rf2.units.seconds }

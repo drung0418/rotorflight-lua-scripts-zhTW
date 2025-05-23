@@ -1,4 +1,4 @@
-print("Minimizing script memory usage...")
+﻿print("Minimizing script memory usage...")
 
 -- Step 1:
 -- - Remove 'id = "xxx"' entries from fields table in the page files.

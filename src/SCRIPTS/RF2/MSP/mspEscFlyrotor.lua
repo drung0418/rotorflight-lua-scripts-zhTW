@@ -1,4 +1,4 @@
-local statusOptions = { [0] = "Disable", "Enable" }
+﻿local statusOptions = { [0] = "Disable", "Enable" }
 local govMode = { [0] = "Ext Governor", "Esc Governor" }
 local becVoltage = { [0] = "Disable", "7.5V", "8.0V", "8.5V", "12.0V" }
 local motorDirection = { [0] = "CW", "CCW" }

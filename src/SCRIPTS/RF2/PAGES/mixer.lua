@@ -1,4 +1,4 @@
-local template = assert(rf2.loadScript(rf2.radio.template))()
+﻿local template = assert(rf2.loadScript(rf2.radio.template))()
 local margin = template.margin
 local indent = template.indent
 local lineSpacing = template.lineSpacing
@@ -32,26 +32,26 @@ local function onClickOverride(field, page)
     end
 end
 
-labels[#labels + 1] = { t = "Swashplate",               x = x,          y = incY(lineSpacing) }
-fields[#fields + 1] = { t = "Geo correction",           x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.swash_geo_correction,  id = "mixerCollectiveGeoCorrection" }
-fields[#fields + 1] = { t = "Total pitch limit",        x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.swash_pitch_limit,     id = "mixerTotalPitchLimit" }
-fields[#fields + 1] = { t = "Phase angle",              x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.swash_phase,           id = "mixerSwashPhase" }
+labels[#labels + 1] = { t = "十字盤",               x = x,          y = incY(lineSpacing) }
+fields[#fields + 1] = { t = "幾何校正",           x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.swash_geo_correction,  id = "mixerCollectiveGeoCorrection" }
+fields[#fields + 1] = { t = "總螺距限制",        x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.swash_pitch_limit,     id = "mixerTotalPitchLimit" }
+fields[#fields + 1] = { t = "相位角度",              x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.swash_phase,           id = "mixerSwashPhase" }
 if rf2.apiVersion >= 12.08 then
-    fields[#fields + 1] = { t = "Pos coll tilt corr",   x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.collective_tilt_correction_pos }
-    fields[#fields + 1] = { t = "Neg coll tilt corr",   x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.collective_tilt_correction_neg }
+    fields[#fields + 1] = { t = "正集體螺距傾斜校正",   x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.collective_tilt_correction_pos }
+    fields[#fields + 1] = { t = "負集體螺距傾斜校正",   x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.collective_tilt_correction_neg }
 end
-fields[#fields + 1] = { t = "TTA precomp",              x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.swash_tta_precomp }
+fields[#fields + 1] = { t = "TTA 預補償",              x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.swash_tta_precomp }
 
 incY(lineSpacing * 0.25)
-labels[#labels + 1] = { t = "Swashplate Link Trims",    x = x,          y = incY(lineSpacing) }
-fields[#fields + 1] = { t = "Roll trim",                x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.swash_trim_roll,       id = "mixerSwashRollTrim" }
-fields[#fields + 1] = { t = "Pitch trim",               x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.swash_trim_pitch,      id = "mixerSwashPitchTrim" }
-fields[#fields + 1] = { t = "Coll. trim",               x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.swash_trim_collective, id = "mixerSwashCollectiveTrim" }
+labels[#labels + 1] = { t = "十字盤微調",    x = x,          y = incY(lineSpacing) }
+fields[#fields + 1] = { t = "橫滾微調[%]",                x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.swash_trim_roll,       id = "mixerSwashRollTrim" }
+fields[#fields + 1] = { t = "俯仰微調[%]",               x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.swash_trim_pitch,      id = "mixerSwashPitchTrim" }
+fields[#fields + 1] = { t = "集體微調[%]",               x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.swash_trim_collective, id = "mixerSwashCollectiveTrim" }
 
 incY(lineSpacing * 0.25)
-labels[#labels + 1] = { t = "Motorised Tail",           x = x,          y = incY(lineSpacing) }
-fields[#fields + 1] = { t = "Motor idle thrott",        x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.tail_motor_idle,       id = "mixerTailMotorIdle" }
-fields[#fields + 1] = { t = "Center trim",              x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.tail_center_trim,      id = "mixerTailRotorCenterTrim" }
+labels[#labels + 1] = { t = "尾馬達",           x = x,          y = incY(lineSpacing) }
+fields[#fields + 1] = { t = "怠速油門[%]",        x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.tail_motor_idle,       id = "mixerTailMotorIdle" }
+fields[#fields + 1] = { t = "中心點微調",              x = x + indent, y = incY(lineSpacing), sp = x + sp, data = mixerConfig.tail_center_trim,      id = "mixerTailRotorCenterTrim" }
 
 if rf2.apiVersion >= 12.08 then
     incY(lineSpacing * 0.5)
@@ -74,7 +74,7 @@ return {
     end,
     eepromWrite = true,
     reboot      = false,
-    title       = "Mixer",
+    title       = "混控",
     labels      = labels,
     fields      = fields
 }

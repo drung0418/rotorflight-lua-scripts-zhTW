@@ -1,4 +1,4 @@
-local motorDirection = { [0] = "CW", "CCW" }
+﻿local motorDirection = { [0] = "CW", "CCW" }
 local becLvVoltage = { [0] = "6.0V", "7.4V", "8.4V" }
 local startupPower = { [0] = "Low", "Medium", "High" }
 local fanControl = { [0] = "On", "Off" }

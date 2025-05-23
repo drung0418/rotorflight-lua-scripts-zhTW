@@ -1,4 +1,4 @@
-local template = assert(rf2.loadScript(rf2.radio.template))()
+﻿local template = assert(rf2.loadScript(rf2.radio.template))()
 local margin = template.margin
 local lineSpacing = template.lineSpacing
 local tableSpacing = template.tableSpacing

@@ -1,4 +1,4 @@
-local function getDefaults()
+﻿local function getDefaults()
     local defaults = {}
     defaults.main_rotor_dir = { min = 0, max = 1, table = { [0] = "CW", "CCW" } }
     defaults.tail_rotor_mode = { min = 0, max = 2, table = { [0] = "VARIABLE", "MOTORIZED", "BIDIRECTIONAL" } }

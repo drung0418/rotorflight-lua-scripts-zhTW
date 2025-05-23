@@ -1,4 +1,4 @@
-local template = assert(rf2.loadScript(rf2.radio.template))()
+﻿local template = assert(rf2.loadScript(rf2.radio.template))()
 local settingsHelper = assert(rf2.loadScript("PAGES/helpers/settingsHelper.lua"))()
 local margin = template.margin
 local indent = template.indent
@@ -58,7 +58,7 @@ return {
         pilotConfigReset()
         rf2.settingsSaved()
     end,
-    title       = "Model",
+    title       = "模型",
     reboot      = false,
     eepromWrite = true,
     labels      = labels,

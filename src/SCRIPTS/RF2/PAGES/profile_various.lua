@@ -1,4 +1,4 @@
-local template = assert(rf2.loadScript(rf2.radio.template))()
+﻿local template = assert(rf2.loadScript(rf2.radio.template))()
 local margin = template.margin
 local indent = template.indent
 local lineSpacing = template.lineSpacing
@@ -15,40 +15,40 @@ local profileSwitcher = assert(rf2.loadScript("PAGES/helpers/profileSwitcher.lua
 local pidProfile = rf2.useApi("mspPidProfile").getDefaults()
 collectgarbage()
 
-fields[#fields + 1] = { t = "Current PID profile",     x = x,          y = incY(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = profileSwitcher.startPidEditing, postEdit = profileSwitcher.endPidEditing }
+fields[#fields + 1] = { t = "目前 PID 設定檔",     x = x,          y = incY(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = profileSwitcher.startPidEditing, postEdit = profileSwitcher.endPidEditing }
 
 incY(lineSpacing * 0.25)
-labels[#labels + 1] = { t = "Main Rotor",              x = x,            y = incY(lineSpacing) }
-fields[#fields + 1] = { t = "Coll to pitch gain",      x = x + indent,   y = incY(lineSpacing), sp = x + sp, data = pidProfile.pitch_collective_ff_gain }
-labels[#labels + 1] = { t = "Cross-Coupling",          x = x + indent,   y = incY(lineSpacing), bold = false }
-fields[#fields + 1] = { t = "Gain",                    x = x + indent*2, y = incY(lineSpacing), sp = x + sp, data = pidProfile.cyclic_cross_coupling_gain }
-fields[#fields + 1] = { t = "Ratio",                   x = x + indent*2, y = incY(lineSpacing), sp = x + sp, data = pidProfile.cyclic_cross_coupling_ratio }
-fields[#fields + 1] = { t = "Cutoff",                  x = x + indent*2, y = incY(lineSpacing), sp = x + sp, data = pidProfile.cyclic_cross_coupling_cutoff }
+labels[#labels + 1] = { t = "主旋翼",              x = x,            y = incY(lineSpacing) }
+fields[#fields + 1] = { t = "集體螺距俯仰增益",      x = x + indent,   y = incY(lineSpacing), sp = x + sp, data = pidProfile.pitch_collective_ff_gain }
+labels[#labels + 1] = { t = "交叉耦合",          x = x + indent,   y = incY(lineSpacing), bold = false }
+fields[#fields + 1] = { t = "增益",                    x = x + indent*2, y = incY(lineSpacing), sp = x + sp, data = pidProfile.cyclic_cross_coupling_gain }
+fields[#fields + 1] = { t = "比率",                   x = x + indent*2, y = incY(lineSpacing), sp = x + sp, data = pidProfile.cyclic_cross_coupling_ratio }
+fields[#fields + 1] = { t = "截止",                  x = x + indent*2, y = incY(lineSpacing), sp = x + sp, data = pidProfile.cyclic_cross_coupling_cutoff }
 
 incY(lineSpacing * 0.25)
-labels[#labels + 1] = { t = "Tail Rotor",              x = x,          y = incY(lineSpacing) }
-fields[#fields + 1] = { t = "CW stop gain",            x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_cw_stop_gain }
-fields[#fields + 1] = { t = "CCW stop gain",           x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_ccw_stop_gain }
-fields[#fields + 1] = { t = "Precomp cutoff",          x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_precomp_cutoff }
-fields[#fields + 1] = { t = "Cyclic FF gain",          x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_cyclic_ff_gain }
-fields[#fields + 1] = { t = "Coll FF gain",            x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_collective_ff_gain }
+labels[#labels + 1] = { t = "尾旋翼",              x = x,          y = incY(lineSpacing) }
+fields[#fields + 1] = { t = "順時針剎車增益",            x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_cw_stop_gain }
+fields[#fields + 1] = { t = "逆時針剎車增益",           x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_ccw_stop_gain }
+fields[#fields + 1] = { t = "預補償截止",          x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_precomp_cutoff }
+fields[#fields + 1] = { t = "循環前饋增益",          x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_cyclic_ff_gain }
+fields[#fields + 1] = { t = "集體前饋增益",            x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_collective_ff_gain }
 if rf2.apiVersion >= 12.08 then
-    fields[#fields + 1] = { t = "Inertia gain",        x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_inertia_precomp_gain }
-    fields[#fields + 1] = { t = "Inertia cutoff",      x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_inertia_precomp_cutoff }
+    fields[#fields + 1] = { t = "慣性預補償增益",        x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_inertia_precomp_gain }
+    fields[#fields + 1] = { t = "慣性預補償截止",      x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_inertia_precomp_cutoff }
 else
-    fields[#fields + 1] = { t = "Coll imp FF gain",    x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_collective_dynamic_gain }
-    fields[#fields + 1] = { t = "Coll imp FF decay",   x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_collective_dynamic_decay }
+    fields[#fields + 1] = { t = "集體螺距瞬時前饋增益",    x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_collective_dynamic_gain }
+    fields[#fields + 1] = { t = "集體螺距瞬時前饋衰減",   x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.yaw_collective_dynamic_decay }
 end
 
 incY(lineSpacing * 0.25)
-labels[#labels + 1] = { t = "Acro Trainer",            x = x,          y = incY(lineSpacing) }
-fields[#fields + 1] = { t = "Leveling gain",           x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.trainer_gain }
-fields[#fields + 1] = { t = "Maximum angle",           x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.trainer_angle_limit }
-labels[#labels + 1] = { t = "Angle Mode",              x = x,          y = incY(lineSpacing) }
-fields[#fields + 1] = { t = "Leveling gain",           x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.angle_level_strength }
-fields[#fields + 1] = { t = "Maximum angle",           x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.angle_level_limit }
-labels[#labels + 1] = { t = "Horizon Mode",            x = x,          y = incY(lineSpacing) }
-fields[#fields + 1] = { t = "Leveling gain",           x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.horizon_level_strength }
+labels[#labels + 1] = { t = "教練模式",            x = x,          y = incY(lineSpacing) }
+fields[#fields + 1] = { t = "回正增益",           x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.trainer_gain }
+fields[#fields + 1] = { t = "最大角度",           x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.trainer_angle_limit }
+labels[#labels + 1] = { t = "自穩模式",              x = x,          y = incY(lineSpacing) }
+fields[#fields + 1] = { t = "回正增益",           x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.angle_level_strength }
+fields[#fields + 1] = { t = "最大角度",           x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.angle_level_limit }
+labels[#labels + 1] = { t = "半自穩模式",            x = x,          y = incY(lineSpacing) }
+fields[#fields + 1] = { t = "回正增益",           x = x + indent, y = incY(lineSpacing), sp = x + sp, data = pidProfile.horizon_level_strength }
 
 local function receivedPidProfile(page, _)
     rf2.lcdNeedsInvalidate = true
@@ -63,7 +63,7 @@ return {
         rf2.useApi("mspPidProfile").write(pidProfile)
         rf2.settingsSaved()
     end,
-    title       = "Profile - Various",
+    title       = "飛行參數 - 其他",
     reboot      = false,
     eepromWrite = true,
     labels      = labels,

@@ -1,4 +1,4 @@
--- Note: voice files were made with Balabolka and the Microsoft Zira voice.
+﻿-- Note: voice files were made with Balabolka and the Microsoft Zira voice.
 
 local adjustmentCollector
 local timeLastChange = -1

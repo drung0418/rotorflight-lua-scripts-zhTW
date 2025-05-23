@@ -1,4 +1,4 @@
-return {
+﻿return {
     margin       = 5,
     indent       = 15,
     lineSpacing  = 22,

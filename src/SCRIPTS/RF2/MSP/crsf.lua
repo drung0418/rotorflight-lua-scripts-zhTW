@@ -1,4 +1,4 @@
--- CRSF Devices
+﻿-- CRSF Devices
 local CRSF_ADDRESS_BETAFLIGHT          = 0xC8
 local CRSF_ADDRESS_RADIO_TRANSMITTER   = 0xEA
 

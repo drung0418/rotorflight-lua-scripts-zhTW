@@ -1,4 +1,4 @@
-local function getStatus(callback, callbackParam)
+﻿local function getStatus(callback, callbackParam)
     local message = {
         command = 101, -- MSP_STATUS
         processReply = function(self, buf)

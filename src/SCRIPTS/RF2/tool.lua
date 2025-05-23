@@ -1,4 +1,4 @@
-chdir("/SCRIPTS/RF2")
+﻿chdir("/SCRIPTS/RF2")
 
 local run = nil
 local scriptsCompiled = assert(loadScript("COMPILE/scripts_compiled.lua"))()

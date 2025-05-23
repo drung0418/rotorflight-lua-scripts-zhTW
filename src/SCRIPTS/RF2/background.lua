@@ -1,4 +1,4 @@
-local initTask = nil
+﻿local initTask = nil
 local adjTellerTask = nil
 local customTelemetryTask = nil
 local isInitialized = false

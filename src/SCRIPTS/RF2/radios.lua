@@ -1,4 +1,4 @@
-local supportedRadios =
+﻿local supportedRadios =
 {
     ["128x64"]  =
     {

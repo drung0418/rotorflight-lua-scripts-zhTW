@@ -1,4 +1,4 @@
-local mspAccCalibration = assert(rf2.loadScript("MSP/mspAccCalibration.lua"))()
+﻿local mspAccCalibration = assert(rf2.loadScript("MSP/mspAccCalibration.lua"))()
 local sentCalibrate = false
 
 local function calibrate()
@@ -12,4 +12,4 @@ local function calibrate()
     return rf2.mspQueue:isProcessed()
 end
 
-return { f = calibrate, t = "Calibrating Accelerometer" }
+return { f = calibrate, t = "校準加速度計" }

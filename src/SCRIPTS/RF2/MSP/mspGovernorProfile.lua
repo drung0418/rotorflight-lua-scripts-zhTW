@@ -1,4 +1,4 @@
-local function getDefaults()
+﻿local function getDefaults()
     local defaults = {}
     defaults.headspeed = { value = nil, min = 0, max = 50000, mult = 10, unit = rf2.units.rpm }
     defaults.gain = { value = nil, min = 0, max = 250 }

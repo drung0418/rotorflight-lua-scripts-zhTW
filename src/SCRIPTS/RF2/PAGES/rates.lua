@@ -1,4 +1,4 @@
---rf2.showMemoryUsage(">>>>> PAGE LOAD <<<<<<")
+﻿--rf2.showMemoryUsage(">>>>> PAGE LOAD <<<<<<")
 local template = assert(rf2.loadScript(rf2.radio.template))()
 --rf2.showMemoryUsage("after template")
 local mspStatus = assert(rf2.loadScript("MSP/mspStatus.lua"))()
@@ -52,10 +52,10 @@ local function buildForm()
 
     labels[#labels + 1] = { t = "",      x = x, y = incY(tableSpacing.header) }
     labels[#labels + 1] = { t = "",      x = x, y = incY(tableSpacing.header) }
-    labels[#labels + 1] = { t = "Roll",  x = x, y = incY(tableSpacing.row) }
-    labels[#labels + 1] = { t = "Pitch", x = x, y = incY(tableSpacing.row) }
-    labels[#labels + 1] = { t = "Yaw",   x = x, y = incY(tableSpacing.row) }
-    labels[#labels + 1] = { t = "Coll",  x = x, y = incY(tableSpacing.row) }
+    labels[#labels + 1] = { t = "橫滾",  x = x, y = incY(tableSpacing.row) }
+    labels[#labels + 1] = { t = "俯仰", x = x, y = incY(tableSpacing.row) }
+    labels[#labels + 1] = { t = "航向",   x = x, y = incY(tableSpacing.row) }
+    labels[#labels + 1] = { t = "集體",  x = x, y = incY(tableSpacing.row) }
 
     x = x + tableSpacing.col
     y = tableStartY
@@ -86,12 +86,12 @@ local function buildForm()
 
     x = margin
     incY(lineSpacing * 0.5)
-    fields[13] = { t = "Rates type",                      x = x,          y = incY(lineSpacing), sp = x + sp, data = rcTuning.rates_type, postEdit = function(self, page) page.updateRatesType(page) end }
+    fields[13] = { t = "速率類型",                      x = x,          y = incY(lineSpacing), sp = x + sp, data = rcTuning.rates_type, postEdit = function(self, page) page.updateRatesType(page) end }
 
     incY(lineSpacing * 0.5)
-    fields[14] = { t = "Current rate profile",            x = x,          y = incY(lineSpacing), sp = x + sp * 1.17, data = { min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = startEditing, postEdit = endRateEditing }
-    fields[15] = { t = "Destination profile",             x = x,          y = incY(lineSpacing), sp = x + sp * 1.17, data = { min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } } }
-    fields[#fields + 1] = { t = "[Copy Current to Dest]", x = x + indent, y = incY(lineSpacing), preEdit = copyProfile }
+    fields[14] = { t = "目前 rate 設定檔",            x = x,          y = incY(lineSpacing), sp = x + sp * 1.17, data = { min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = startEditing, postEdit = endRateEditing }
+    fields[15] = { t = "預定複製到設定檔",             x = x,          y = incY(lineSpacing), sp = x + sp * 1.17, data = { min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } } }
+    fields[#fields + 1] = { t = "[開始複製]", x = x + indent, y = incY(lineSpacing), preEdit = copyProfile }
     --rf2.showMemoryUsage("after buildform")
 end
 
@@ -122,7 +122,7 @@ return {
         rf2.useApi("mspRcTuning").write(rcTuning)
         rf2.settingsSaved()
     end,
-    title       = "Rates",
+    title       = "速率",
     reboot      = false,
     eepromWrite = true,
     labels      = labels,

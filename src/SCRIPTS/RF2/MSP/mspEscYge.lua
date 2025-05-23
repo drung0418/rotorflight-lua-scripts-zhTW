@@ -1,4 +1,4 @@
-local escFlags = {
+﻿local escFlags = {
     spinDirection = 0,
     f3cAuto = 1,
     keepMah = 2,

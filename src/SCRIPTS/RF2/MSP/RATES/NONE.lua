@@ -1,4 +1,4 @@
-local function setRateDefaults(data)
+﻿local function setRateDefaults(data)
     data.roll_rcRates = { value = 0, min = 1, max = 0 }
     data.roll_rcExpo = { value = 0, min = 0, max = 0 }
     data.roll_rates = { value = 0, min = 0, max = 0 }

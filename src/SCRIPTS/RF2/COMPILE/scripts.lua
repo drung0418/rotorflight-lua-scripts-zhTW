@@ -1,4 +1,4 @@
-local scripts = {
+﻿local scripts = {
     "/SCRIPTS/FUNCTIONS/rf2bg.lua",
     "/SCRIPTS/RF2/COMPILE/compile.lua",
     "/SCRIPTS/RF2/CONFIRM/acc_cal.lua",

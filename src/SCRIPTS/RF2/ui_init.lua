@@ -1,11 +1,11 @@
-local mspApiVersion = rf2.useApi("mspApiVersion")
+﻿local mspApiVersion = rf2.useApi("mspApiVersion")
 local returnTable = { f = nil, t = "" }
 local apiVersion
 local lastRunTS
 
 local function init()
     if getRSSI() == 0 and not rf2.runningInSimulator then
-        returnTable.t = "Waiting for connection"
+        returnTable.t = "等待連接"
         return false
     end
 
@@ -20,7 +20,7 @@ local function init()
     if rf2.mspQueue:isProcessed() and apiVersion then
         local apiVersionAsString = string.format("%.2f", apiVersion)
         if apiVersion < 12.06 then
-            returnTable.t = "This version of the Lua\nscripts can't be used\nwith the selected model\nwhich has version "..apiVersionAsString.."."
+            returnTable.t = "此版Lua腳本\n無法支援\n選定的模型\nAPI版本"..apiVersionAsString.."."
         else
             -- received correct API version, proceed
             rf2.apiVersion = apiVersion

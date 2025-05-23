@@ -1,4 +1,4 @@
-local flightMode = {
+﻿local flightMode = {
     [0] = "Fixed Wing",
     "Ext Gov",
     "Governor",

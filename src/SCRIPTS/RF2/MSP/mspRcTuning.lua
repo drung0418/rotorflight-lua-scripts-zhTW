@@ -1,4 +1,4 @@
-local function getDefaults()
+﻿local function getDefaults()
     local defaults = {}
     defaults.rates_type = {}
     defaults.roll_rcRates = {}

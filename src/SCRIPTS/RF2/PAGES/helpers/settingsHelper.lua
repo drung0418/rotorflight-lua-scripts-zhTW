@@ -1,4 +1,4 @@
-local function addDirtyTrackingToTable(originalTable)
+﻿local function addDirtyTrackingToTable(originalTable)
     local proxyTable = {}
     local dirty = false
     function proxyTable:resetDirtyFlag() dirty = false end

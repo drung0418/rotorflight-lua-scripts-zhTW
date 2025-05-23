@@ -1,4 +1,4 @@
-local template = assert(rf2.loadScript(rf2.radio.template))()
+﻿local template = assert(rf2.loadScript(rf2.radio.template))()
 local margin = template.margin
 local indent = template.indent
 local lineSpacing = template.lineSpacing
@@ -11,14 +11,14 @@ local inc = { x = function(val) x = x + val return x end, y = function(val) y = 
 local labels = {}
 local fields = {}
 
-labels[#labels + 1] = { t = "Make sure the craft is level", x = x, y = inc.y(lineSpacing) }
-labels[#labels + 1] = { t = "and stable, then press",       x = x, y = inc.y(lineSpacing) }
-labels[#labels + 1] = { t = "[ENTER] to calibrate, or",     x = x, y = inc.y(lineSpacing) }
-labels[#labels + 1] = { t = "[EXIT] to cancel.",            x = x, y = inc.y(lineSpacing) }
+labels[#labels + 1] = { t = "保持機體水平",                 x = x, y = inc.y(lineSpacing) }
+labels[#labels + 1] = { t = "穩定後按",                     x = x, y = inc.y(lineSpacing) }
+labels[#labels + 1] = { t = "[ENTER] 進行校準, or",         x = x, y = inc.y(lineSpacing) }
+labels[#labels + 1] = { t = "[EXIT] 取消",                  x = x, y = inc.y(lineSpacing) }
 fields[#fields + 1] = { x = x, y = inc.y(lineSpacing), value = "", readOnly = true }
 
 return {
-    title  = "Accelerometer",
+    title  = "加速度計校準",
     labels = labels,
     fields = fields,
     init   = assert(rf2.loadScript("acc_cal.lua"))(),

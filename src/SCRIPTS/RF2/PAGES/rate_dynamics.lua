@@ -1,4 +1,4 @@
-local template = assert(rf2.loadScript(rf2.radio.template))()
+﻿local template = assert(rf2.loadScript(rf2.radio.template))()
 local mspSetProfile = assert(rf2.loadScript("MSP/mspSetProfile.lua"))()
 local mspStatus = assert(rf2.loadScript("MSP/mspStatus.lua"))()
 local margin = template.margin
@@ -27,12 +27,12 @@ fields = {}
 fields[#fields + 1] = { t = "Current rate profile", x = x, y = incY(lineSpacing), sp = x + sp * 1.17, data = { value = nil, min = 0, max = 5, table = { [0] = "1", "2", "3", "4", "5", "6" } }, preEdit = rateSwitcher.startPidEditing, postEdit = rateSwitcher.endPidEditing }
 incY(lineSpacing * 0.5)
 
-local responseTime = "Response time"
-local maxAcceleration = "Max acceleration"
-local setpointBoostGain = "Setp boost gain"
-local setpointBoostCutoff = "Setp boost cutoff"
+local responseTime = "回應時間[ms]"
+local maxAcceleration = "最大加速度"
+local setpointBoostGain = "設定點增壓增益"
+local setpointBoostCutoff = "設定點增壓截止"
 
-labels[#labels + 1] = { t = "Roll Dynamics",       x = x,          y = incY(lineSpacing) }
+labels[#labels + 1] = { t = "橫滾動態",       x = x,          y = incY(lineSpacing) }
 fields[#fields + 1] = { t = responseTime,          x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.roll_response_time }
 fields[#fields + 1] = { t = maxAcceleration,       x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.roll_accel_limit }
 if rf2.apiVersion >= 12.08 then
@@ -40,7 +40,7 @@ if rf2.apiVersion >= 12.08 then
     fields[#fields + 1] = { t = setpointBoostCutoff,   x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.roll_setpoint_boost_cutoff }
 end
 
-labels[#labels + 1] = { t = "Pitch Dynamics",      x = x,          y = incY(lineSpacing) }
+labels[#labels + 1] = { t = "俯仰動態",      x = x,          y = incY(lineSpacing) }
 fields[#fields + 1] = { t = responseTime,          x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.pitch_response_time }
 fields[#fields + 1] = { t = maxAcceleration,       x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.pitch_accel_limit }
 if rf2.apiVersion >= 12.08 then
@@ -48,7 +48,7 @@ if rf2.apiVersion >= 12.08 then
     fields[#fields + 1] = { t = setpointBoostCutoff,   x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.pitch_setpoint_boost_cutoff }
 end
 
-labels[#labels + 1] = { t = "Yaw Dynamics",        x = x,          y = incY(lineSpacing) }
+labels[#labels + 1] = { t = "航向動態",        x = x,          y = incY(lineSpacing) }
 fields[#fields + 1] = { t = responseTime,          x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.yaw_response_time }
 fields[#fields + 1] = { t = maxAcceleration,       x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.yaw_accel_limit }
 if rf2.apiVersion >= 12.08 then
@@ -56,7 +56,7 @@ if rf2.apiVersion >= 12.08 then
     fields[#fields + 1] = { t = setpointBoostCutoff,   x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.yaw_setpoint_boost_cutoff }
 end
 
-labels[#labels + 1] = { t = "Collective Dynamics", x = x,          y = incY(lineSpacing) }
+labels[#labels + 1] = { t = "集體螺距動態", x = x,          y = incY(lineSpacing) }
 fields[#fields + 1] = { t = responseTime,          x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.collective_response_time }
 fields[#fields + 1] = { t = maxAcceleration,       x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.collective_accel_limit }
 if rf2.apiVersion >= 12.08 then
@@ -66,10 +66,10 @@ end
 
 if rf2.apiVersion >= 12.08 then
     incY(lineSpacing * 0.5)
-    labels[#labels + 1] = { t = "Dynamic",             x = x,          y = incY(lineSpacing) }
-    fields[#fields + 1] = { t = "Ceiling gain",        x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.yaw_dynamic_ceiling_gain }
-    fields[#fields + 1] = { t = "Deadband gain",       x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.yaw_dynamic_deadband_gain }
-    fields[#fields + 1] = { t = "Deadband filter",     x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.yaw_dynamic_deadband_filter }
+    labels[#labels + 1] = { t = "動態",             x = x,          y = incY(lineSpacing) }
+    fields[#fields + 1] = { t = "增益上限",        x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.yaw_dynamic_ceiling_gain }
+    fields[#fields + 1] = { t = "死區增益",       x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.yaw_dynamic_deadband_gain }
+    fields[#fields + 1] = { t = "死區濾波器",     x = x + indent, y = incY(lineSpacing), sp = x + sp, data = rcTuning.yaw_dynamic_deadband_filter }
 end
 
 local function receivedRcTuning(page)
@@ -85,7 +85,7 @@ return {
         rf2.useApi("mspRcTuning").write(rcTuning)
         rf2.settingsSaved()
     end,
-    title       = "Rate Dynamics",
+    title       = "速率 - 動態",
     reboot      = false,
     eepromWrite = true,
     labels      = labels,

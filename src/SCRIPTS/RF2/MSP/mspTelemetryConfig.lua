@@ -1,4 +1,4 @@
-local function getTelemetryConfig(callback, callbackParam)
+﻿local function getTelemetryConfig(callback, callbackParam)
     local message = {
         command = 73, -- MSP_TELEMETRY_CONFIG
         processReply = function(self, buf)
